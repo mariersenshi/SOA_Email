@@ -8,13 +8,7 @@ const RABBITMQ_URL = process.env.RABBIT_HOST;
 
 export async function userEvents() {
     try {
-        const connection = await amqp.connect({
-                protocol: 'amqp',
-                hostname: process.env.RABBITMQ_HOST || 'rabbitmq',
-                port: 5672,
-                username: process.env.RABBITMQ_USER || 'user',
-                password: process.env.RABBITMQ_PASS || 'password'
-            });
+        const connection = await amqp.connect("amqps://pslngtxw:EDquSCxlGIqU_KZPi_eK09fTs433-0Qz@beaver.rmq.cloudamqp.com/pslngtxw");
         const channel = await connection.createChannel();
 
         const exchange = 'user_event';
